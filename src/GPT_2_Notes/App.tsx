@@ -30,7 +30,7 @@ function App() {
     );
 }
 
-function NoteList({ notes }) {
+function NoteList({ notes }: NotesProps) {
     return <div></div>;
 }
 
