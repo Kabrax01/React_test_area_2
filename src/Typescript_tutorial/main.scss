@@ -1,0 +1,25 @@
+* {
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: darkslategrey;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 2rem;
+
+    .person {
+        margin-bottom: 3rem;
+        border: 1px solid white;
+        text-align: center;
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}
