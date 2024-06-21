@@ -21,3 +21,5 @@ const initialValues = {
 };
 
 const UserContext = createContext<UserContextType>(initialValues);
+
+const my;
