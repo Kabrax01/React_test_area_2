@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export interface User {
     name: string;
@@ -20,4 +20,23 @@ const initialValues = {
     deleteUser: () => null,
 };
 
-const UserContext = createContext<UserContextType>(initialValues);
+const UserContext = createContext<UserContextType | null>(initialValues);
+
+interface Props {
+    children: React.ReactNode;
+}
+
+export const UserProvider = (props: Props) => {
+    const [users, setUsers] = useState<User[] | null>(null);
+
+    useEffect(() => {
+        setUsers([{ name: "pedro", age: 23, isMarried: false }]);
+        console.log(users);
+    }, [users]);
+
+    return (
+        <UserContext.Provider value={initialValues}>
+            {props.children}
+        </UserContext.Provider>
+    );
+};
