@@ -14,7 +14,7 @@ interface NotesProps {
 }
 
 function App() {
-    const [notes, setNotes] = useState<Note[] | null>(null);
+    const [notes, setNotes] = useState<Note[] | []>([]);
     const [selectedNote, setSelectedNote] = useState<number | undefined>();
     const [noteContent, setNoteContent] = useState<Note | undefined>();
 
@@ -31,17 +31,17 @@ function App() {
 
     useEffect(() => {
         setNotes(data);
-        setSelectedNote(1);
+        // setSelectedNote(1);
         console.log(data);
     }, []);
 
     return (
         <main>
-            <div className="notes">
-                <div className="notes_title">
+            <div className="notepad">
+                <div className="notepad_title-main">
                     <h1>Notatnik</h1>
                 </div>
-                <div className="notes_container">
+                <div className="notepad_container">
                     <NoteList notes={notes} setSelectedNote={setSelectedNote} />
                     <NoteItem noteContent={noteContent} />
                 </div>
@@ -52,8 +52,8 @@ function App() {
 
 function NoteList({ notes, setSelectedNote }: NotesProps) {
     return (
-        <div>
-            <div className="notes_title">
+        <div className="note_list">
+            <div className="notes_list-title">
                 <button>Nowa notatka</button>
                 <ul>
                     {notes?.map((note) => {
@@ -72,12 +72,28 @@ function NoteList({ notes, setSelectedNote }: NotesProps) {
     );
 }
 
-function NoteItem({ noteContent }: Note) {
-    const { title } = noteContent;
+interface NoteItemProps {
+    noteContent: Note | undefined;
+}
+
+function NoteItem({ noteContent }: NoteItemProps) {
+    if (!noteContent)
+        noteContent = { id: 0, title: "empty", content: "Add new note" };
+    const { title, content } = noteContent;
+
+    console.log(noteContent);
     return (
-        <div>
-            Hello
-            <p>{title}</p>
+        <div className="note_item">
+            {noteContent ? (
+                <>
+                    <p>{title}</p>
+                    <p>{content}</p>
+                </>
+            ) : (
+                <>
+                    <p>NO note content</p>
+                </>
+            )}
         </div>
     );
 }
