@@ -7,31 +7,32 @@ interface Note {
 const data: Note[] = [
     {
         id: 1,
-        title: "Shopping List",
-        content: "Milk, Bread, Butter, Eggs, Cheese",
+        title: "Lista zakupów",
+        content: "Mleko, Chleb, Masło, Jajka, Ser",
     },
     {
         id: 2,
-        title: "Meeting Notes",
-        content: "Discuss project milestones, assign tasks, review deadlines",
+        title: "Notatki z spotkania",
+        content:
+            "Omówienie etapów projektu, przydział zadań, przegląd terminów",
     },
     {
         id: 3,
-        title: "Workout Plan",
+        title: "Plan treningowy",
         content:
-            "Monday: Chest and Triceps, Tuesday: Back and Biceps, Wednesday: Rest, Thursday: Legs and Shoulders, Friday: Cardio",
+            "Poniedziałek: Klatka i tricepsy, Wtorek: Plecy i bicepsy, Środa: Odpoczynek, Czwartek: Nogi i ramiona, Piątek: Cardio",
     },
     {
         id: 4,
-        title: "Book List",
+        title: "Lista książek",
         content:
-            "1984 by George Orwell, Brave New World by Aldous Huxley, The Great Gatsby by F. Scott Fitzgerald",
+            "1984 George'a Orwella, Nowy Wspaniały Świat Aldousa Huxleya, Wielki Gatsby F. Scotta Fitzgeralda",
     },
     {
         id: 5,
-        title: "Travel Itinerary",
+        title: "Plan podróży",
         content:
-            "Day 1: Arrive in Paris, visit Eiffel Tower, Day 2: Louvre Museum, Day 3: Day trip to Versailles",
+            "Dzień 1: Przyjazd do Paryża, wizyta przy Wieży Eiffla, Dzień 2: Muzeum Luwr, Dzień 3: Wycieczka do Wersalu",
     },
 ];
 
