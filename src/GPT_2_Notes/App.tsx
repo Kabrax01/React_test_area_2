@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import data from "./data";
 import "./main.scss";
+import { NoteList } from "./NoteList";
+import { NoteItem } from "./NoteItem";
 
-interface Note {
+export interface Note {
     id: number;
     title: string;
     content: string;
 }
 
-interface NotesProps {
+export interface NotesProps {
     notes: Note[] | null;
     setSelectedNote: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
@@ -47,54 +49,6 @@ function App() {
                 </div>
             </div>
         </main>
-    );
-}
-
-function NoteList({ notes, setSelectedNote }: NotesProps) {
-    return (
-        <div className="note_list">
-            <div className="notes_list-title">
-                <button>Nowa notatka</button>
-                <ul>
-                    {notes?.map((note) => {
-                        return (
-                            <li
-                                onClick={() => setSelectedNote(note.id)}
-                                key={note.id}>
-                                {note.title}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-            <div className="notes_content"></div>
-        </div>
-    );
-}
-
-interface NoteItemProps {
-    noteContent: Note | undefined;
-}
-
-function NoteItem({ noteContent }: NoteItemProps) {
-    if (!noteContent)
-        noteContent = { id: 0, title: "empty", content: "Add new note" };
-    const { title, content } = noteContent;
-
-    console.log(noteContent);
-    return (
-        <div className="note_item">
-            {noteContent ? (
-                <>
-                    <p>{title}</p>
-                    <p>{content}</p>
-                </>
-            ) : (
-                <>
-                    <p>NO note content</p>
-                </>
-            )}
-        </div>
     );
 }
 
