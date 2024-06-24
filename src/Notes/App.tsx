@@ -15,7 +15,7 @@ function App() {
     const [notes, setNotes] = useState<Note[] | []>([]);
     const [selectedNote, setSelectedNote] = useState<number | undefined>();
     const [noteContent, setNoteContent] = useState<Note | undefined>();
-    const [showNewNoteForm, setShowNewNoteForm] = useState<boolean>(true);
+    const [showNewNoteForm, setShowNewNoteForm] = useState<boolean>(false);
 
     function handleShowForm() {
         setShowNewNoteForm((prev) => !prev);
