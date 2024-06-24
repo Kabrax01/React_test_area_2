@@ -1,9 +1,21 @@
-import { NotesProps } from "./App";
+import { Note } from "./App";
 
-export function NoteList({ notes, setSelectedNote }: NotesProps) {
+interface NotesProps {
+    notes: Note[] | null;
+    setSelectedNote: React.Dispatch<React.SetStateAction<number | undefined>>;
+    handleShowForm: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export function NoteList({
+    notes,
+    setSelectedNote,
+    handleShowForm,
+}: NotesProps) {
     return (
         <div className="note_list">
-            <button className="note_list-button">Nowa notatka</button>
+            <button className="note_list-button" onClick={handleShowForm}>
+                Nowa notatka
+            </button>
 
             <ul>
                 {notes?.map((note) => {

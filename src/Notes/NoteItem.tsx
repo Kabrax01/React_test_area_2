@@ -8,11 +8,10 @@ export function NoteItem({ noteContent }: NoteItemProps) {
         noteContent = {
             id: 0,
             title: "Tutaj będzie tytuł",
-            content: "Tutaj będzie treść notatki",
+            content: "Tutaj będzie tekst",
         };
     const { title, content } = noteContent;
 
-    console.log(noteContent);
     return (
         <div className="note">
             <div className="note-title">
