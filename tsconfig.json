@@ -20,6 +20,6 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src", "src/GPT_2_Notes/data.ts"],
+    "include": ["src", "src/Notes/data.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
