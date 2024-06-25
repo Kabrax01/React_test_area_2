@@ -2,8 +2,14 @@ import { Note } from "./App";
 
 interface NoteItemProps {
     noteContent: Note | undefined;
+    handleDeleteNote: () => void;
+    setEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export function NoteItem({ noteContent }: NoteItemProps) {
+export function NoteItem({
+    noteContent,
+    handleDeleteNote,
+    setEdit,
+}: NoteItemProps) {
     if (!noteContent)
         noteContent = {
             id: 0,
@@ -22,8 +28,8 @@ export function NoteItem({ noteContent }: NoteItemProps) {
             </div>
 
             <div className="note_actions">
-                <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => setEdit((prev) => !prev)}>Edit</button>
+                <button onClick={handleDeleteNote}>Delete</button>
             </div>
         </div>
     );

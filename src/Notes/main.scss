@@ -33,6 +33,10 @@ button {
     border-radius: 5px;
     padding: 0.5rem 1rem;
     cursor: pointer;
+
+    &:active {
+        transform: translateY(2px);
+    }
 }
 
 .notepad {
@@ -68,10 +72,6 @@ button {
             button {
                 align-self: center;
                 font-size: 1.3rem;
-
-                &:active {
-                    transform: translateY(2px);
-                }
             }
 
             ul {
@@ -156,6 +156,20 @@ button {
                     padding: 0.3rem;
                     flex: 3;
                     width: 70%;
+                }
+
+                input,
+                textarea {
+                    border: $border-light-black;
+                    border-radius: 5px;
+                    background-color: transparent;
+
+                    &:focus {
+                        outline-color: hsl(240, 49%, 37%);
+                        // outline-offset: 0.1rem;
+                        outline-width: 0.2rem;
+                        outline-style: solid;
+                    }
                 }
             }
 
