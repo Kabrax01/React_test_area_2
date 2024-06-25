@@ -11,6 +11,8 @@ export function NoteList({
     setSelectedNote,
     handleShowForm,
 }: NotesProps) {
+    const emptyNoteList = Boolean(notes?.length);
+
     return (
         <div className="note_list">
             <button className="note_list-button" onClick={handleShowForm}>
@@ -18,10 +20,14 @@ export function NoteList({
             </button>
 
             <ul>
+                {emptyNoteList || <li>Brak notatek</li>}
+
                 {notes?.map((note) => {
                     return (
                         <li
-                            onClick={() => setSelectedNote(note.id)}
+                            onClick={() => {
+                                setSelectedNote(note.id);
+                            }}
                             key={note.id}>
                             {note.title}
                         </li>

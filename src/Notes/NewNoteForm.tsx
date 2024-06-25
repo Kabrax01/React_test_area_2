@@ -6,6 +6,8 @@ interface NoteFormProps {
     setNotes: React.Dispatch<React.SetStateAction<Note[] | []>>;
     handleShowForm: React.Dispatch<React.SetStateAction<boolean>>;
     setSelectedNote: React.Dispatch<React.SetStateAction<number | undefined>>;
+    selectedNote: number;
+    edit: boolean;
 }
 
 function NewNoteForm({
@@ -13,6 +15,8 @@ function NewNoteForm({
     setNotes,
     handleShowForm,
     setSelectedNote,
+    selectedNote,
+    edit,
 }: NoteFormProps) {
     const [title, setTitle] = useState<string | "">("");
     const [content, setContent] = useState<string | "">("");
@@ -26,8 +30,14 @@ function NewNoteForm({
         console.log(notes);
     }
 
+    function handleEditNote(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+    }
+
     return (
-        <form className="note_form" onSubmit={(e) => handleAddNewNote(e)}>
+        <form
+            className="note_form"
+            onSubmit={edit ? handleAddNewNote : handleEditNote}>
             <div>
                 <input
                     type="text"
@@ -44,7 +54,7 @@ function NewNoteForm({
                     required
                 />
             </div>
-            <button>Dodaj notatę</button>
+            <button>{!edit ? "Dodaj notatę" : "Edytuj"}</button>
         </form>
     );
 }
