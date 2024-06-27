@@ -36,7 +36,6 @@ function NewNoteForm({
         setNotes([...notes, newNote]);
         handleShowForm(false);
         setSelectedNote(newNote);
-        console.log(notes);
     }
 
     function handleEditNote(e: React.FormEvent<HTMLFormElement>) {

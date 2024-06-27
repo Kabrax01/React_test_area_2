@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import data from "./data";
 import "./main.scss";
 import { NoteList } from "./NoteList";
 import { NoteItem } from "./NoteItem";
@@ -12,7 +11,10 @@ export interface Note {
 }
 
 function App() {
-    const [notes, setNotes] = useState<Note[] | []>([]);
+    const [notes, setNotes] = useState<Note[] | []>(() => {
+        const savedNotes = localStorage.getItem("notes");
+        return savedNotes ? JSON.parse(savedNotes) : [];
+    });
     const [selectedNote, setSelectedNote] = useState<Note | undefined>();
     const [showNewNoteForm, setShowNewNoteForm] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
@@ -21,6 +23,7 @@ function App() {
         if (!notes.length) {
             setSelectedNote(undefined);
         }
+        localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes]);
 
     function handleShowForm() {
@@ -36,10 +39,6 @@ function App() {
             setSelectedNote(notes.at(-1));
         }
     }
-
-    useEffect(() => {
-        setNotes(data);
-    }, []);
 
     return (
         <main>
