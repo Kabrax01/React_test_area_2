@@ -1,22 +1,24 @@
 import { Note } from "./App";
 
 interface NoteItemProps {
-    noteContent: Note | undefined;
     handleDeleteNote: () => void;
     setEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    selectedNote: Note | undefined;
 }
 export function NoteItem({
-    noteContent,
     handleDeleteNote,
     setEdit,
+    selectedNote,
 }: NoteItemProps) {
-    if (!noteContent)
-        noteContent = {
-            id: 0,
-            title: "Tutaj będzie tytuł",
-            content: "Tutaj będzie tekst",
-        };
-    const { title, content } = noteContent;
+    if (!selectedNote) {
+        return (
+            <div className="note note--empty">
+                <p>Kliknij w notatkę aby ją wyświetlić</p>
+            </div>
+        );
+    }
+
+    const { title, content } = selectedNote;
 
     return (
         <div className="note">

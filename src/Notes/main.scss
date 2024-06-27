@@ -102,6 +102,12 @@ button {
             border-top: $border-light-black;
             @include flexbox(column, center, flex-start);
 
+            &--empty {
+                @include flexbox;
+                font-size: 2rem;
+                text-align: center;
+            }
+
             &-title {
                 width: 90%;
                 text-align: center;
