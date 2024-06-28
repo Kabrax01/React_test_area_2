@@ -40,8 +40,19 @@ function App() {
         }
     }
 
+    useEffect(() => {
+        const size = window.innerWidth;
+        console.log(size);
+    }, []);
+
     return (
-        <main>
+        <main
+            style={{
+                backgroundImage: "url(background-4k.webp)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+            }}>
             <div className="notepad">
                 <div className="notepad_title-main">
                     <h1>Notatnik</h1>
